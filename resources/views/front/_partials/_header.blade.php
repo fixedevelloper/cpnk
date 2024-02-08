@@ -19,6 +19,9 @@
                                 <a class="nav-link" href="#ico">About us</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="#faq">FAQ</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="#contact">Contact Us</a>
                             </li>
                         </ul>
@@ -39,7 +42,7 @@
                                     <img src="{{asset("backend/images/avatars/02.png")}}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('dashboard')}}">Profile</a>
+                                    <a class="dropdown-item" href="{{route('profil')}}">Profile</a>
                                     <a class="dropdown-item" href="/">Privacy Setting</a>
                                     <a class="border-0"><hr class="m-0 dropdown-divider"></a>
                                     <a class="dropdown-item" href="{{route('destroy')}}">Logout</a>

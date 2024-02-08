@@ -64,7 +64,7 @@
                         <img src="{{asset("backend/images/avatars/01.png")}}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li class="border-0"><a class="dropdown-item" href="/">Profile</a></li>
+                        <li class="border-0"><a class="dropdown-item" href="{{route("profil")}}">Profile</a></li>
                         <li class="border-0"><a class="dropdown-item" href="/">Privacy Setting</a></li>
                         <li class="border-0"><hr class="m-0 dropdown-divider"></li>
                         <li class="border-0"><a class="dropdown-item" href="{{route('destroy')}}">Logout</a></li>

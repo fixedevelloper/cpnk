@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\AccountController;
 use App\Http\Controllers\backend\AdministrationController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\front\AuthController;
@@ -36,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('make_withdraw');
     Route::post('/make_investiment', [DashboardController::class, 'make_investiment'])
         ->name('make_investiment');
+    Route::match(["POST", "GET"],'/my_profil', [AccountController::class, 'profil'])
+        ->name('profil');
 });
 Route::group(['middleware' => ['auth','isAdmin']], function () {
 
