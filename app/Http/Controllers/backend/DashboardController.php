@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\backend;
 
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\ActivationLevel;
 use App\Models\Investiment;
@@ -99,9 +100,11 @@ class DashboardController extends Controller
         $invest=new Investiment();
         $invest->amount=$request->amount;
         $invest->user_id=$user->id;
-        $invest->pourcentage=$request->amount;
+        $invest->pourcentage=Helper::getPourcentage($request->amount);
         $invest->created_date=date('Y-m-d');
+        $user->sold-=$request->amount;
         $invest->save();
+        $user->save();
         return redirect()->route("my_investment");
     }
 }

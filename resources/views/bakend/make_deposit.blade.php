@@ -27,10 +27,11 @@
                     <img class="img-thumbnail" src="{{asset("backend/images/momo.jpg")}}">
                 </div>
                 <div class="col-md-6">
-                    <form>
+                    <form method="POST">
+                        @csrf
                         <div class="form-group">
                             <label class="form-label" for="email">Proof ID</label>
-                            <input type="text" class="form-control" id="proof">
+                            <input type="text" class="form-control" id="proof" name="id_proof">
                         </div>
                         <button type="submit" class="btn btn-primary rounded">Send</button>
                     </form>

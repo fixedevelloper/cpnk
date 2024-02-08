@@ -1,11 +1,14 @@
 {{-- Extends layout --}}
 @extends('bakend.layout')
 
+
+
+{{-- Content --}}
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between border-0">
             <div class="header-title ">
-                <h4 class="card-title">My Deposit</h4>
+                <h4 class="card-title">All Investments</h4>
             </div>
         </div>
         <div class="card-body">
@@ -14,19 +17,24 @@
                     <thead class="border-0">
                     <tr>
                         <th>Date</th>
+                        <th>User</th>
                         <th>Amount</th>
-                        <th>Method</th>
-                        <th>Status</th>
-                        <th>Completion</th>
+                        <th>Pourcentage</th>
+                        <th>Duree(By Month)</th>
+                        <th>Amount total</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($deposits as $transaction)
+                    @foreach($investiments as $transaction)
                         <tr>
                             <td>{{$transaction->created_at}}</td>
-                            <td>{{$transaction->amount}}</td>
-                            <td>{{$transaction->method_payment}}</td>
-                            <td>{{$transaction->status}}</td>
+                            <td>{{$transaction->user->name}}</td>
+                            <td>{{$transaction->amount}} FCFA</td>
+                            <td>{{$transaction->pourcentage}}/Month</td>
+                            <td>{{\App\Helpers\Helper::getTotalMonth($transaction->created_at)}}</td>
+                            <td>{{($transaction->amount * ($transaction->pourcentage/100)*\App\Helpers\Helper::getTotalMonth($transaction->created_at))+$transaction->amount}} FCFA</td>
+                       <td></td>
                         </tr>
                     @endforeach
                     </tbody>

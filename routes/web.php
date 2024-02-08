@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\AdministrationController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\front\AuthController;
 use App\Http\Controllers\front\HomeController;
@@ -29,14 +30,22 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('my_investment');
     Route::get('/my_withdraw', [DashboardController::class, 'my_withdraw'])
         ->name('my_withdraw');
-    Route::get('/make_deposit', [DashboardController::class, 'make_deposit'])
+    Route::match(["POST", "GET"],'/make_deposit', [DashboardController::class, 'make_deposit'])
         ->name('make_deposit');
-    Route::get('/make_withdraw', [DashboardController::class, 'make_withdraw'])
+    Route::match(["POST", "GET"],'/make_withdraw', [DashboardController::class, 'make_withdraw'])
         ->name('make_withdraw');
     Route::post('/make_investiment', [DashboardController::class, 'make_investiment'])
         ->name('make_investiment');
 });
+Route::group(['middleware' => ['auth','isAdmin']], function () {
 
+    Route::get('/transaction', [AdministrationController::class, 'transaction'])
+        ->name('transaction');
+    Route::get('/investiments', [AdministrationController::class, 'investiments'])
+        ->name('investiments');
+    Route::match(["POST", "GET"],'/transaction/{id}', [AdministrationController::class, 'transaction_detail'])
+        ->name('transaction_detail');
+});
 Route::match(['POST','GET'],'/login', [AuthController::class, 'login'])
     ->name('login');
 Route::match(['POST','GET'],'/register_post', [AuthController::class, 'register'])

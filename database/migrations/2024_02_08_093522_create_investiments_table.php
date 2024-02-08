@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('amount');
             $table->string('status')->comment("pending/accepted/payable")->default("pending");
             $table->date("created_date")->nullable(true);
+            $table->dateTime("end_date")->nullable(true);
+            $table->integer("month")->nullable(true);
             $table->float('pourcentage');
             $table->foreignId("user_id")->constrained('users');
             $table->timestamps();

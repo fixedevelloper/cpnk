@@ -24,6 +24,14 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($withdraws as $transaction)
+                        <tr>
+                            <td>{{$transaction->created_at}}</td>
+                            <td>{{$transaction->amount}}</td>
+                            <td>{{$transaction->method_payment}}</td>
+                            <td>{{$transaction->status}}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
