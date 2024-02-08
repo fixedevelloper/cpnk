@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::match(["POST", "GET"], '/', [HomeController::class, 'index'])
     ->name('home');
 Route::group(['middleware' => ['auth']], function () {
-
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])
         ->name('dashboard');
     Route::get('/my_deposit', [DashboardController::class, 'my_deposit'])
@@ -46,8 +45,12 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
         ->name('transaction');
     Route::get('/investiments', [AdministrationController::class, 'investiments'])
         ->name('investiments');
+    Route::get('/users', [AdministrationController::class, 'users'])
+        ->name('users');
     Route::match(["POST", "GET"],'/transaction/{id}', [AdministrationController::class, 'transaction_detail'])
         ->name('transaction_detail');
+    Route::match(["POST", "GET"],'/user/{id}', [AdministrationController::class, 'user_detail'])
+        ->name('user_detail');
 });
 Route::match(['POST','GET'],'/login', [AuthController::class, 'login'])
     ->name('login');
