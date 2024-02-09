@@ -21,19 +21,32 @@ class AdministrationController extends Controller
         $transactions=Transaction::query()->get();
         return view('bakend.transaction', compact('page_title', 'page_description','transactions'));
     }
-    public function users()
+    public function users(Request $request)
     {
-        $page_title = 'Transactions';
+        $page_title = 'Users';
         $page_description = 'Some description for the page';
+        if ($request->method()=="POST"){
+            $user=new User();
+            $user->name=$request->name;
+            $user->phone=$request->phone;
+            $user->email=$request->email;
+            $user->sold=0.0;
+            $user->sold_withdraw=0.0;
+            $user->user_type=0;
+            $user->password=bcrypt($request->get('password'));
+            $user->save();
+        }
         $users=User::query()->get();
         return view('bakend.users', compact('page_title', 'page_description','users'));
     }
     public function user_detail(Request $request,$id)
     {
-        $page_title = 'Transactions';
+        $page_title = 'Detail User';
         $page_description = 'Some description for the page';
         $user=User::query()->find($id);
-        return view('bakend.user_detail', compact('page_title', 'page_description','user'));
+        $transactions=Transaction::query()->where(['user_id'=>$id])->get();
+        $invests=Investiment::query()->where(['user_id'=>$id])->get();
+        return view('bakend.user_detail', compact('page_title', 'page_description','user','transactions','invests'));
     }
     public function investiments()
     {

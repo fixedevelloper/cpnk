@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CAPITALNORISK | Capital no risk</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset("favicon.ico")}}" />
     <link rel="stylesheet" href="{{asset("backend/css/core/libs.min.css")}}">
     <link rel="stylesheet" href="{{asset("backend/css/coinex.min.css?v=1.0.0")}}">
     <link rel="stylesheet" href="{{asset("backend/css/custom.min.css?v=1.0.0")}}">  </head>
@@ -15,7 +15,8 @@
 <div id="loading">
     <div class="loader simple-loader">
         <div class="loader-body"></div>
-    </div>    </div>
+    </div>
+</div>
 <!-- loader END -->
 @include("bakend.elements.sidebar")
 <main class="main-content">

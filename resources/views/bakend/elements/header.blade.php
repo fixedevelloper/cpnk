@@ -10,7 +10,7 @@
                 </svg>
             </i>
         </div>
-        <h4 class="title">
+        <h4 class="title" data-toggle="copy" data-bs-toggle="tooltip" data-bs-placement="top">
             {{$page_title}}
         </h4>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +22,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto navbar-list mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link  py-0 d-flex align-items-center"  id="mail-drop"   data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown" title="Make investment" data-toggle="copy" data-bs-toggle="tooltip" data-bs-placement="top">
+                    <a href="#" class="nav-link  py-0 d-flex align-items-center"  id="mail-drop"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="h3 active">{{\Illuminate\Support\Facades\Auth::user()->sold}} FCFA </span><svg width="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.9028 8.85107L13.4596 12.4641C12.6201 13.1301 11.4389 13.1301 10.5994 12.4641L6.11865 8.85107" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                         <span class="bg-primary count-mail"></span>
@@ -42,7 +42,7 @@
                                         <span class="input-group-text" id="basic-addon45">FCFA</span>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary">Validate</button>
+                                <button data-toggle="copy" data-bs-toggle="tooltip" data-bs-placement="top" title="Save your investment" class="btn btn-primary">Validate</button>
                                 </form>
                             </div>
                         </div>

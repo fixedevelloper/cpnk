@@ -161,7 +161,8 @@
                                             Bitcoin BTC<a href="#" class="button btn-primary badge ms-2" >Buy</a>
                                         </td>
                                         <td class="pe-2">$40,501.87</td>
-                                        <td class="text-danger"><svg width="10" height="8" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <td class="text-danger">
+                                            <svg width="10" height="8" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4 4.5L0.535898 0L7.4641 0L4 4.5Z" fill="#FF2E2E"/>
                                             </svg>
                                             6.93%

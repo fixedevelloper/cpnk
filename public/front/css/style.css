@@ -139,6 +139,7 @@ header.menu-sticky { position: fixed; background: var(--iq-light); padding: 10px
 .iq-banner { position: relative; padding: 11% 0 6%; z-index: -1; }
 .iq-banner:before { position: absolute; top: 0%; left: 0%; content: ""; width: 100%; z-index: 999; height: 100%; display: inline-block; background-image: url('../images/01.png'); }
 .banner-info { position: relative; z-index: 999; }
+
 .iq-banner .iq-countdown { background: var(--iq-light); border-radius: 30px; padding: 40px 40px; position: relative; }
 .iq-banner .wave-poistion { position: absolute; top: 0; left: 0; z-index: 99; }
 .iq-banner .wave-poistion canvas { width: 100% !important; height: 100% !important; }

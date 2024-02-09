@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
         ->name('transaction');
     Route::get('/investiments', [AdministrationController::class, 'investiments'])
         ->name('investiments');
-    Route::get('/users', [AdministrationController::class, 'users'])
+    Route::match(["POST", "GET"],'/users', [AdministrationController::class, 'users'])
         ->name('users');
     Route::match(["POST", "GET"],'/transaction/{id}', [AdministrationController::class, 'transaction_detail'])
         ->name('transaction_detail');

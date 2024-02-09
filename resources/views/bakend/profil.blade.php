@@ -49,19 +49,19 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="fname">First Name:</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First Name">
+                                    <input value="{{$user->name}}" type="text" class="form-control" id="fname" placeholder="First Name">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="lname">Last Name:</label>
                                     <input type="text" class="form-control" id="lname" placeholder="Last Name">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="form-label" for="add1">Street Address 1:</label>
-                                    <input type="text" class="form-control" id="add1" placeholder="Street Address 1">
+                                    <label class="form-label" for="mobno">Mobile Number:</label>
+                                    <input value="{{$user->phone}}" type="text" class="form-control" id="mobno" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                    <input value="{{$user->email}}" type="email" class="form-control" id="email" placeholder="Email">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="form-label" for="cname">Company Name:</label>
@@ -69,27 +69,24 @@
                                 </div>
                                 <div class="form-group col-sm-12">
                                     <label class="form-label">Country:</label>
-                                    <select name="type" class="selectpicker form-control" data-style="py-0">
+                                    <select name="country" class="selectpicker form-control" data-style="py-0">
                                         <option>Select Country</option>
-                                        <option>Caneda</option>
-                                        <option>Noida</option>
-                                        <option >USA</option>
-                                        <option>India</option>
-                                        <option>Africa</option>
+                                        <option>Cameroon</option>
+                                        <option>Republic of Congo</option>
+                                        <option >RDC</option>
+                                        <option>RCA</option>
+                                        <option>Chad</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="form-label" for="mobno">Mobile Number:</label>
-                                    <input type="text" class="form-control" id="mobno" placeholder="Mobile Number">
-                                </div>
+
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="altconno">Alternate Contact:</label>
-                                    <input type="text" class="form-control" id="altconno" placeholder="Alternate Contact">
+                                    <input type="text" name="alter_contact" class="form-control" id="altconno" placeholder="Alternate Contact">
                                 </div>
 
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label class="form-label" for="city">Town/City:</label>
-                                    <input type="text" class="form-control" id="city" placeholder="Town/City">
+                                    <input type="text" name="city" class="form-control" id="city" placeholder="Town/City">
                                 </div>
                             </div>
                             <hr>
@@ -97,15 +94,15 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label class="form-label" for="uname">Phone:</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                    <input value="{{$user->phone}}" name="phone" type="text" class="form-control" id="phone" placeholder="Phone">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="pass">Password:</label>
-                                    <input type="password" class="form-control" id="pass" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" id="pass" placeholder="Password">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label" for="rpass">Repeat Password:</label>
-                                    <input type="password" class="form-control" id="rpass" placeholder="Repeat Password ">
+                                    <input type="password" name="repeat_password" class="form-control" id="rpass" placeholder="Repeat Password ">
                                 </div>
                             </div>
                             <div class="checkbox">

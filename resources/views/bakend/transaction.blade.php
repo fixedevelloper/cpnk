@@ -31,8 +31,16 @@
                         <tr>
                             <td>{{$transaction->created_at}}</td>
                             <td>{{$transaction->user->name}}</td>
-                            <td>{{$transaction->type}}</td>
-                            <td>{{$transaction->amount}}</td>
+                            @if($transaction->type=="withdraw")
+                                <td class="text-danger"><svg width="10" height="8" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4.5L0.535898 0L7.4641 0L4 4.5Z" fill="#FF2E2E"/>
+                                    </svg> {{$transaction->type}}</td>
+                            @else
+                                <td class="text-success"><svg width="10" height="8" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 0.5L7.4641 5H0.535898L4 0.5Z" fill="#00EC42"/>
+                                    </svg> {{$transaction->type}}</td>
+                            @endif
+                            <td>{{$transaction->amount}} FCFA</td>
                             <td>{{$transaction->method_payment}}</td>
                             <td>{{$transaction->status}}</td>
                             <td><a class="btn btn-sm btn-success" href="{{route("transaction_detail",['id'=>$transaction->id])}}"><i class="fa fa-eye">

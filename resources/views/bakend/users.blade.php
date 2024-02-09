@@ -3,9 +3,10 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header d-flex justify-content-between border-0">
+        <div class="card-header border-0">
             <div class="header-title ">
                 <h4 class="card-title">Users</h4>
+                <a class="btn btn-sm btn-primary float-end" data-bs-toggle="modal" data-bs-target=".add-user"> Add Personnel</a>
             </div>
         </div>
         <div class="card-body">
@@ -38,6 +39,41 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade add-user" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content blue-bg">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title ">Add Personnel</h4>
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST">
+                        @csrf
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="name">Phone</label>
+                                <input type="text" class="form-control" id="name" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="name">Email</label>
+                                <input type="text" class="form-control" id="name" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="name">Password</label>
+                                <input type="text" class="form-control" id="name" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary rounded">Save</button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>

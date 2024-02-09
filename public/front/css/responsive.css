@@ -1,6 +1,6 @@
 /*
 
-COINEX - Crypto Currency HTML Template 
+COINEX - Crypto Currency HTML Template
 Author: iqonicthemes.in
 Version: 3
 Design and Developed by: iqonicthemes.in
@@ -34,7 +34,7 @@ Design and Developed by: iqonicthemes.in
 @media(max-width:992px) {
 
 	/*----------------
-	Section padding 
+	Section padding
 	----------------*/
 	.overview-block-ptb { padding: 70px 0; }
 	.overview-block-pt { padding: 70px 0 0; }
@@ -62,7 +62,7 @@ Design and Developed by: iqonicthemes.in
 	#chartrounddiv { height: 250px; }
 	.timeline:not(.timeline--horizontal):before { background-color: #292c34; }
 }
-@media(max-width:991px) { 
+@media(max-width:991px) {
 	.iq-our-team-2 .team-blog {
 		width: 71%;
 		height: 71%;
@@ -90,6 +90,7 @@ Design and Developed by: iqonicthemes.in
 	.iq-our-team-2 .team-blog {width: 47%;}
 	.footer-bottom .iq-copyright {text-align: center;}
 	.iq-footer .iq-media-blog {text-align: center; margin-top: 15px;}
+    .banner-info { position: relative; z-index: 1}
 }
 
 @media(max-width:479px) {
