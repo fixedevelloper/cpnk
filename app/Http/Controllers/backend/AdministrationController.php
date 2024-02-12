@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\backend;
 
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Investiment;
 use App\Models\Transaction;
@@ -18,7 +19,7 @@ class AdministrationController extends Controller
         $user=Auth::user();
         $page_title = 'Transactions';
         $page_description = 'Some description for the page';
-        $transactions=Transaction::query()->get();
+        $transactions=Transaction::query()->latest()->paginate(Helper::per_page);
         return view('bakend.transaction', compact('page_title', 'page_description','transactions'));
     }
     public function users(Request $request)
@@ -36,7 +37,7 @@ class AdministrationController extends Controller
             $user->password=bcrypt($request->get('password'));
             $user->save();
         }
-        $users=User::query()->get();
+        $users=User::query()->latest()->paginate(Helper::per_page);
         return view('bakend.users', compact('page_title', 'page_description','users'));
     }
     public function user_detail(Request $request,$id)
@@ -44,8 +45,8 @@ class AdministrationController extends Controller
         $page_title = 'Detail User';
         $page_description = 'Some description for the page';
         $user=User::query()->find($id);
-        $transactions=Transaction::query()->where(['user_id'=>$id])->get();
-        $invests=Investiment::query()->where(['user_id'=>$id])->get();
+        $transactions=Transaction::query()->where(['user_id'=>$id])->latest()->paginate(Helper::per_page);
+        $invests=Investiment::query()->where(['user_id'=>$id])->latest()->paginate(Helper::per_page);
         return view('bakend.user_detail', compact('page_title', 'page_description','user','transactions','invests'));
     }
     public function investiments()
@@ -53,7 +54,7 @@ class AdministrationController extends Controller
         $user=Auth::user();
         $page_title = 'Investiments';
         $page_description = 'Some description for the page';
-        $investiments=Investiment::query()->orderBy('id')->get();
+        $investiments=Investiment::query()->orderBy('id')->latest()->paginate(Helper::per_page);
         return view('bakend.investment', compact('page_title', 'page_description','investiments'));
     }
     public function transaction_detail($id,Request $request)

@@ -11,7 +11,8 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "web3p/web3.php": "dev-master"
+        "web3p/web3.php": "dev-master",
+        "yoeunes/toastr": "dev-master"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

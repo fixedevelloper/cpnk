@@ -7,6 +7,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,9 @@ class AuthController extends Controller
     {
         $loginRequest->authenticate();
         $bool = $loginRequest->authorize();
+        if (!$bool){
+            toastr()->error("Phone or password not correct");
+        }
         $loginRequest->session()->regenerate();
         return redirect()->route('dashboard');
 
@@ -42,6 +46,12 @@ class AuthController extends Controller
             $user->user_type=1;
             $user->password=bcrypt($request->get('password'));
             $user->save();
+            if ($user instanceof Model) {
+                toastr()->success('Data has been saved successfully!');
+
+            }else{
+                toastr()->error('An error has occurred please try again later.');
+            }
         }
 
        return $this->login(LoginRequest::createFrom($request));

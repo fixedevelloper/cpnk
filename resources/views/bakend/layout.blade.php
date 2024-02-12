@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{asset("favicon.ico")}}" />
     <link rel="stylesheet" href="{{asset("backend/css/core/libs.min.css")}}">
     <link rel="stylesheet" href="{{asset("backend/css/coinex.min.css?v=1.0.0")}}">
-    <link rel="stylesheet" href="{{asset("backend/css/custom.min.css?v=1.0.0")}}">  </head>
+    <link rel="stylesheet" href="{{asset("backend/css/custom.css?v=1.0.0")}}">  </head>
 <body class=" ">
 <!-- loader Start -->
 <div id="loading">

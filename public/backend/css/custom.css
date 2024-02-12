@@ -6,6 +6,21 @@
 * NOTE: This file contains the styling for responsive Template.
 *
 */
+.fusus{
+    color: #FF971D !important;
+}
+.amount-clignote  {
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+}
+
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+}
 @media (max-width: 1199.98px) {
   .sidebar.sidebar-transparent {
     background: #fff; } }

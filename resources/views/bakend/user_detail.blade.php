@@ -54,6 +54,17 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Pagination -->
+            <div class="row justify-content-center text-center mt-3">
+                <div class="col-sm-auto">
+                    <div class="d-flex justify-content-center ">
+                        <!-- Pagination -->
+                        {!! $transactions->links() !!}
+                        <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- End Pagination -->
         </div>
     </div>
     <div class="card">
@@ -89,6 +100,17 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Pagination -->
+            <div class="row justify-content-center text-center mt-3">
+                <div class="col-sm-auto">
+                    <div class="d-flex justify-content-center ">
+                        <!-- Pagination -->
+                        {!! $invests->links() !!}
+                        <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- End Pagination -->
         </div>
     </div>
 @endsection

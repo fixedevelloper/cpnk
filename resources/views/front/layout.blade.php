@@ -137,7 +137,7 @@
 
             </div>
             <div class="modal-footer text-center">
-                <div> You Have an Account? <a data-bs-toggle="modal" data-bs-target=".iq-login" data-whatever="@mdo" href="javascript:void(0)" class="iq-font-yellow">Login</a></div>
+                <div> You Have an Account? <a data-bs-toggle="modal" data-bs-target=".iq-login" data-whatever="@mdo" href="javascript:void(0)" class="iq-font-yellow iq-login_btn">Login</a></div>
                 <ul class="iq-media-blog iq-mt-20">
                     <li><a href="# "><i class="fa fa-twitter "></i></a></li>
                     <li><a href="# "><i class="fa fa-facebook "></i></a></li>
@@ -163,6 +163,15 @@
 <script src="{{asset('front/js/stats.js')}}"></script>
 @stack('scripts')
 <script src="{{asset('front/js/custom.js')}}"></script>
+<script>
+    $('.iq-register').click(function() {
+        $('.iq-login').modal('hide');
+    });
+    $('.iq-login_btn').click(function() {
+        $('.iq-register').modal('hide');
+        $('.iq-login').modal('show');
+    });
+</script>
 </body>
 
 </html>

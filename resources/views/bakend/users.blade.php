@@ -40,6 +40,17 @@
                     </tbody>
                 </table>
             </div>
+            <!-- Pagination -->
+            <div class="row justify-content-center text-center mt-3">
+                <div class="col-sm-auto">
+                    <div class="d-flex justify-content-center ">
+                        <!-- Pagination -->
+                        {!! $users->links() !!}
+                        <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+                    </div>
+                </div>
+            </div>
+            <!-- End Pagination -->
         </div>
     </div>
     <div class="modal fade add-user" tabindex="-1" role="dialog" aria-hidden="true">

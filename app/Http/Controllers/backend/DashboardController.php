@@ -6,11 +6,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
-use App\Models\ActivationLevel;
 use App\Models\Investiment;
-use App\Models\Lottory;
 use App\Models\Transaction;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -38,7 +37,7 @@ class DashboardController extends Controller
         $page_title = 'My Investisment';
         $page_description = 'Some description for the page';
         $user=Auth::user();
-        $invests=Investiment::query()->where(['user_id'=>$user->id])->get();
+        $invests=Investiment::query()->where(['user_id'=>$user->id])->latest()->paginate(Helper::per_page);
         return view('bakend.my_investment', compact('page_title', 'page_description','invests'));
     }
     public function my_withdraw()
@@ -46,7 +45,7 @@ class DashboardController extends Controller
         $user=Auth::user();
         $page_title = 'My Withdraw';
         $page_description = 'Some description for the page';
-        $withdraws=Transaction::query()->where(['type'=>'withdraw','user_id'=>$user->id])->get();
+        $withdraws=Transaction::query()->where(['type'=>'withdraw','user_id'=>$user->id])->latest()->paginate(Helper::per_page);
         return view('bakend.my_withdraw', compact('page_title', 'page_description','withdraws'));
     }
     public function my_deposit()
@@ -54,7 +53,7 @@ class DashboardController extends Controller
         $user=Auth::user();
         $page_title = 'My Deposit';
         $page_description = 'Some description for the page';
-        $deposits=Transaction::query()->where(['type'=>'deposit','user_id'=>$user->id])->get();
+        $deposits=Transaction::query()->where(['type'=>'deposit','user_id'=>$user->id])->latest()->paginate(Helper::per_page);
         return view('bakend.my_deposit', compact('page_title', 'page_description','deposits'));
     }
     public function make_deposit(Request $request)
@@ -70,6 +69,12 @@ class DashboardController extends Controller
             $transaction->method_payment=$request->method_payment;
             $transaction->user_id=$user->id;
             $transaction->save();
+            if ($transaction instanceof Model) {
+                toastr()->success('Data has been saved successfully!');
+
+            }else{
+                toastr()->error('An error has occurred please try again later.');
+            }
             return redirect()->route("my_deposit");
         }
         return view('bakend.make_deposit', compact('page_title', 'page_description'));
@@ -95,6 +100,7 @@ class DashboardController extends Controller
     {
         $user=Auth::user();
         if ($user->sold<$request->amount || is_null($user->sold)){
+            toastr()->error('Your balance is insufficient.');
             return redirect()->route('dashboard');
         }
         $invest=new Investiment();
@@ -105,6 +111,12 @@ class DashboardController extends Controller
         $user->sold-=$request->amount;
         $invest->save();
         $user->save();
+        if ($invest instanceof Model) {
+            toastr()->success('Data has been saved successfully!');
+
+        }else{
+            toastr()->error('An error has occurred please try again later.');
+        }
         return redirect()->route("my_investment");
     }
 }
