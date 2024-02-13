@@ -62,7 +62,12 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link py-0 d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset("backend/images/avatars/01.png")}}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
+                       @if(is_null(\Illuminate\Support\Facades\Auth::user()->image))
+                            <img src="{{asset("backend/images/avatars/01.png")}}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
+                        @else
+                            <img src="{{asset('storage/uploads/'.\Illuminate\Support\Facades\Auth::user()->image)}}" alt="User-Profile" class="img-fluid avatar avatar-50 avatar-rounded">
+                        @endif
+
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li class="border-0"><a class="dropdown-item" href="{{route("profil")}}">Profile</a></li>

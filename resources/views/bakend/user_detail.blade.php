@@ -7,6 +7,58 @@
             <h4 class="card-title">Information User</h4>
         </div>
         <div class="card-body">
+            <div class="profile-img-edit position-relative text-center">
+                @if(is_null($user->image))
+                    <img class="img-fluid avatar avatar-130 avatar-rounded" src="{{asset('backend/images/avatars/01.png')}}" alt="profile-pic">
+                @else
+                    <img class="img-fluid avatar avatar-130 avatar-rounded" src="{{asset('storage/uploads/'.$user->image)}}" alt="profile-pic">
+                @endif
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <dl class="text-white text-start">
+                        <dt>Name</dt>
+                        <dd>{{$user->name}}</dd>
+                        <dt>Last name</dt>
+                        <dd>{{$user->last_name}}</dd>
+                        <dt>Phone</dt>
+                        <dd>{{$user->phone}}</dd>
+                        <dt>Email</dt>
+                        <dd>{{$user->email}}</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <dl class="text-white text-start">
+                        <dt>Country</dt>
+                        <dd>{{$user->country}}</dd>
+                        <dt>Town/City</dt>
+                        <dd>{{$user->town}}</dd>
+                        <dt>Company Name</dt>
+                        <dd>{{$user->company_name}}</dd>
+                        <dt>Alter contact</dt>
+                        <dd>{{$user->alternate_contact}}</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <label>Image recto</label>
+                        @if(is_null($user->recto_card))
+                            <img class="img-fluid avatar-100" src="{{asset('front/images/10.png')}}" alt="profile-pic">
+                        @else
+                            <img class="img-fluid avatar-100" src="{{asset('storage/uploads/'.$user->recto_card)}}" alt="profile-pic">
+                        @endif
+                    </div>
+                    <div class="mt-3">
+                        <label>Image Face</label>
+                        @if(is_null($user->face_card))
+                            <img class="img-fluid avatar-100" src="{{asset('front/images/10.png')}}" alt="profile-pic">
+                        @else
+                            <img class="img-fluid avatar-100" src="{{asset('storage/uploads/'.$user->face_card)}}" alt="profile-pic">
+                        @endif
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
     <div class="card">

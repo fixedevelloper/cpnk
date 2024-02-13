@@ -6,11 +6,26 @@ namespace App\Helpers;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Helper
 {
 
     const per_page=10;
+    public static function upload(string $dir, string $format, $image = null)
+    {
+        if ($image != null) {
+            $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . "." . $format;
+            if (!Storage::disk('public')->exists($dir)) {
+                Storage::disk('public')->makeDirectory($dir);
+            }
+            Storage::disk('public')->put($dir . $imageName, file_get_contents($image));
+        } else {
+            $imageName = 'def.png';
+        }
+
+        return $imageName;
+    }
     public static function calculMemberIn24Hour($id)
     {
         $start = Carbon::today()->setTime(1, 00, 00)->format("Y-m-d h:i:s");

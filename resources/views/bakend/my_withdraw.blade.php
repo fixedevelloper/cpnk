@@ -11,7 +11,7 @@
                 <h4 class="card-title">My Withdraw</h4>
             </div>
         </div>
-        <div class="card-body p-0">
+        <div class="card-body">
             <div class="table-responsive">
                 <table id="basic-table" class="table table-striped table-shadow mb-0" role="grid">
                     <thead class="border-0">

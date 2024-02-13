@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('make_investiment');
     Route::match(["POST", "GET"],'/my_profil', [AccountController::class, 'profil'])
         ->name('profil');
+    Route::post('/uploadimage', [AccountController::class, 'updatePhoto'])
+        ->name('uploadimage');
 });
 Route::group(['middleware' => ['auth','isAdmin']], function () {
 
